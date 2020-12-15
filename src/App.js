@@ -1,15 +1,37 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Post from "./post"
 import "./App.css"
 
 function App(props) {
+  const[pnam,setPname]=useState('');
+  const[pdes,setPd]=useState('');
+  const[pimg,setPimg]=useState('');
+  const submitf=()=>{
+    
+    return(
+      <>
+      
+      <Post pname={pnam} time="9h" pd={pdes} img={pimg}/>
+      </>
+      
+      
+    )
+  }
  
   return (
-    <div >
+    <div className="form" >
     <h1>Facebook Post</h1>
-    <Post pname="Muhammad Basil" time="9h" pd="In the United States, a SWAT (special weapons and tactics) team is a law enforcement unit which uses specialized or military equipment and tactics." img="https://e7.pngegg.com/pngimages/163/586/png-clipart-united-states-special-forces-special-reaction-team-swat-military-swat-people-computer-wallpaper.png"/>
-    <Post pname="Muhammad Basil" time="9h" pd="In the United States, a SWAT (special weapons and tactics) team is a law enforcement unit which uses specialized or military equipment and tactics." img="https://media.istockphoto.com/photos/special-forces-soldier-police-swat-team-member-picture-id1154971116?k=6&m=1154971116&s=612x612&w=0&h=BZRoKyJ-_SdlfLv1P0cu8f8ULPGUrikFHGsIysD1pIw="/>
-    <Post pname="Muhammad Basil" time="9h" pd="In the United States, a SWAT (special weapons and tactics) team is a law enforcement unit which uses specialized or military equipment and tactics." img="https://i.ytimg.com/vi/XYVP5LE4mgc/hqdefault.jpg"/>
+    <label htmlFor="pd">Username</label>
+    <input onChange={event => setPname(event.target.value)} type="text" id="pname" placeholder="Username.." />
+    <label htmlFor="pd">Post Description</label>
+    <input onChange={event => setPd(event.target.value)} type="text" id="pd" placeholder="Post Description.." />
+    <label htmlFor="pimg">Post Image</label>
+    <input onChange={event => setPimg(event.target.value)} type="text" id="pimg" placeholder="Post Image.." />
+    <button onClick={submitf}className="submit">SUBMIT</button>
+    <Post pname={pnam} time="9h" pd={pdes} img={pimg}/>
+    
+    
+    
     
       </div>
   );
